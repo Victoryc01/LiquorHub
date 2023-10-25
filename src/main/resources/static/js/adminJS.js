@@ -2,5 +2,6 @@
 
 document.getElementById("logoutButton").addEventListener("click", function () {
     // Perform logout action
-    alert("Logged out!");
+    alert("Admin Logged out!");
+    window.location.href = "/adminLog";
 });

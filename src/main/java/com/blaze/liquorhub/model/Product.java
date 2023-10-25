@@ -1,7 +1,11 @@
 package com.blaze.liquorhub.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "product")
 public class Product {
@@ -10,7 +14,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "product_id")
-    public int id;
+    public Long product_id;
 
     @Column(name = "name")
     public String name;

@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
   <link rel="stylesheet" href="/css/user_form.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body>
+
+<!--<h1>welcome, click here for admin section</h1>-->
+<!--<a href="/admin">Admin Signup</a>-->
+<!--<a href="/adminLog">Admin Login</a>-->
+
 
 <div class="container">
   <input type="checkbox" id="flip">
@@ -52,6 +59,11 @@
               <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
             </div>
           </form>
+
+        <form action="/admin" method="get">
+          <button type="submit">Admin Login</button>
+        </form>
+
       </div>
       <div class="signup-form">
         <div class="title">Signup</div>

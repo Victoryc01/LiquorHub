@@ -32,7 +32,7 @@ public class AdminController {
 
         Admin registarAdmin = adminService.createAdmin(admin.getName(), admin.getEmail(), admin.getPassword());
 
-        return registarAdmin ==null ? "error_page" : "redirect:/adminLogin";
+        return registarAdmin ==null ? "error_page" : "redirect:/adminLog";
     }
 
     @GetMapping("/adminLog")
@@ -42,17 +42,16 @@ public class AdminController {
     }
 
     @PostMapping("/adminLog")
-    public String adminlogin(@ModelAttribute Admin admin, Model model){
+    public String adminLog(@ModelAttribute Admin admin, Model model){
         System.out.println("Admin login request" + admin);
-        Admin authh = adminService.authenticationz(admin.getName(),admin.getPassword());
+        Admin authh = adminService.authentications(admin.getName(),admin.getPassword());
         if (authh != null){
-            return "redirect:/";
+//            return "redirect:/";
+            return "admin_dash";
         }else {
             return  "error_page";
+
         }
     }
-
-
-
 
 }

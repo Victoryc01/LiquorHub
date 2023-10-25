@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<h1>welcome</h1>
-<a href="/register">Signup</a>
-<a href="/login">Login</a>
+<!--<h1>welcome</h1>-->
+<!--<a href="/register">Signup</a>-->
+<!--<a href="/login">Login</a>-->
 
 
 <header>
@@ -61,7 +61,7 @@
     <div class="content">
         <span>The connoisseur master of exquisite wine</span>
         <h3>your one-stop wine place</h3>
-        <a href="#" class="btn">get started</a>
+        <a href="/register" class="btn">get started</a>
     </div>
 
 
@@ -104,25 +104,26 @@
             <h3>red wine</h3>
             <p>upto -50% off</p>
             <img src="images/MicrosoftTeams-image%20(1).png" alt="">
-            <a href="redWine.jsp" class="btn">shop now</a>
+            <a href="/redWine" class="btn">shop now</a>
+
         </div>
         <div class="box">
             <h3>whiskey</h3>
             <p>upto -44% off</p>
             <img src="images/patswhiskeycollection.webp" alt="">
-            <a href="whiskeyProduct.jsp" class="btn">shop now</a>
+            <a href="/whiskey" class="btn">shop now</a>
         </div>
         <div class="box">
             <h3>beer</h3>
             <p>upto -35% off</p>
             <img src="images/bottles-famous-global-beer-brands-poznan-pol-mar-including-heineken-becks-bud-miller-corona-stella-artois-san-miguel-143170440.webp" alt="">
-            <a href="beerProduct.jsp" class="btn">shop now</a>
+            <a href="/beer" class="btn">shop now</a>
         </div>
         <div class="box">
             <h3>soft drink</h3>
             <p>upto -12% off</p>
             <img src="images/MicrosoftTeams-image.png" alt="">
-            <a href="softDrink.jsp" class="btn">shop now</a>
+            <a href="/softDrink" class="btn">shop now</a>
         </div>
     </div>
 </section>
@@ -139,7 +140,7 @@
 <section class="deal" id="deal">
     <div class="content">
         <h3 class="title">deal of the day</h3>
-        <p>Join us at LiqHub on October 1st for an Independence Day special like no other!
+        <p>Join us at LiqHub for special like no other!
             Discover our exclusive deal of the day and celebrate freedom in style.
             We invite you to raise a glass with us on this special occasion.</p>
 
@@ -236,7 +237,9 @@
                 <a href="#">google play</a>
                 <a href="#">window xp</a>
                 <a href="#">app store</a>
-                <a href="admin_dash.html"> Admin Add Product</a>
+                <a>             </a>
+                <a>             </a>
+                <a href="/adminLog">Login as Admin</a>
             </div>
         </div>
     </div>
@@ -244,10 +247,6 @@
     <p class="credit">created by <span>victory</span> | blaze group</p>
 </section>
 
-<!-- footer section ends -->
-
-
-<!-- custom js file link  -->
 <script src="js/liqhub.js"></script>
 
 

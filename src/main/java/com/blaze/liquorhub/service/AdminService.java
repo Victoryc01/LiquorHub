@@ -1,10 +1,11 @@
 package com.blaze.liquorhub.service;
 
 import com.blaze.liquorhub.model.Admin;
-import com.blaze.liquorhub.model.User;
 import com.blaze.liquorhub.repository.AdminRep;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AdminService {
 
     private final AdminRep adminRep;
@@ -16,7 +17,7 @@ public class AdminService {
     }
     public Admin createAdmin(String name, String email, String password){
 
-        if (name == null || password==null){
+        if (name == null || password== null){
             return null;
         }else {
             if (adminRep.findFirstByName(name).isPresent()){
@@ -31,11 +32,12 @@ public class AdminService {
 
             adminRep.save(admin);
 
-            return null;
+            return admin;
         }
     }
 
-    public Admin authenticationz(String name, String password){
+    public Admin authentications(String name, String password){
         return adminRep.findByNameAndPassword(name, password).orElse(null);
     }
+
 }

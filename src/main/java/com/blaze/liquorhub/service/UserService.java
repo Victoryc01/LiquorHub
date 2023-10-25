@@ -1,9 +1,12 @@
 package com.blaze.liquorhub.service;
 
+import com.blaze.liquorhub.model.Product;
 import com.blaze.liquorhub.model.User;
 import com.blaze.liquorhub.repository.UserRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -41,22 +44,10 @@ public class UserService {
 
     }
 
+    public List<User> getAllUser(){
+        return userRep.findAll();
+    }
 
-
-
-
-//    public User createUser(User user){
-//
-//        return userRep.save(user);
-//    }
-//
-//    @Override
-//    public void addUser(User UserRequest) {
-//
-//
-//
-//
-//    }
 
 
 }

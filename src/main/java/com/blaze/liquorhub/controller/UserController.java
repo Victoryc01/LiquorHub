@@ -1,5 +1,6 @@
 package com.blaze.liquorhub.controller;
 
+import com.blaze.liquorhub.model.Product;
 import com.blaze.liquorhub.model.User;
 import com.blaze.liquorhub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 
 @Controller
@@ -56,4 +59,19 @@ public class UserController {
            return  "error_page";
         }
     }
+
+
+
+    @GetMapping("/showUsers")
+    public String displayUsers(Model model) {
+        List<User> userList = userService.getAllUser();
+        model.addAttribute("userRequest", userList);
+        return "user_list";
+    }
+
+    @PostMapping("/showUsers")
+    public String userDisplay() {
+        return "redirect:/products";
+    }
+
 }

@@ -4,8 +4,7 @@ import com.blaze.liquorhub.model.Product;
 import com.blaze.liquorhub.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,19 +18,72 @@ private final ProductService productService;
 
     @GetMapping("/products")
     public String listProducts(Model model) {
-        System.out.println("listProduct Called");
-        // Retrieve all products from the service
         List<Product> products = productService.getAllProduct();
-
-        // Add the products to the model for rendering in the HTML template
         model.addAttribute("productsRequest", products);
-
-        // Return the HTML template to display the products
-        return "product_list"; // Assuming you have a Thymeleaf template named "product_list.html"
+        return "product_list";
     }
 
     @PostMapping("/products")
     public String processProductForm() {
         return "redirect:/products";
     }
+
+    @GetMapping("/add")
+    public String showAddProductForm() {
+        return "add_product";
+    }
+
+    @GetMapping("/dashboard")
+    public String showDashboard(){
+        return "admin_dash";
+    }
+
+    @GetMapping("/beer")
+    public String showBeerPage(){
+        return "beer";
+    }
+
+    @GetMapping("/redWine")
+    public String showRedWine(){
+        return "redWine";
+    }
+    @GetMapping("/softDrink")
+    public String showSoftDrink(){
+        return "softDrink";
+    }
+    @GetMapping("/whiskey")
+    public String showWhiskey(){
+        return "whiskey";
+    }
+
+
+    @PostMapping("/add")
+    public String addProduct(String name,String description,double price, int category_id, int quantity){
+
+            Product addItems = productService.addProduct(name, description, price, category_id, quantity);
+        if (addItems != null){
+            return "admin_dash";
+
+        }else {
+            return "error_page";
+        }
+
+    }
+
+
+
+    @PostMapping("/products/{product_id}")
+    //@DeleteMapping("/deleteProducts/{product_id}")
+    public String deleteProduct(@PathVariable Long product_id) {
+        productService.deleteProductById(product_id);
+        return "redirect:/deleteProducts";
+    }
+
+    @GetMapping("/deleteProducts")
+    public String deleteProductView(Model model) {
+        List<Product> products = productService.getAllProduct();
+        model.addAttribute("productsRequestDelete", products);
+        return "delete_product";
+    }
+
 }
